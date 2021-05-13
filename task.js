@@ -42,9 +42,9 @@ const Avengers = [
 
 
 const x_men = [
+    { name: ' Doctor Victor von Doom', team: 'Avengers/X-men' },
     { name: 'Quicksilver', team: 'Avengers/X-men' },
     { name: 'Arcángel', team: 'X-men' },
-    { name: 'Doctor Victor von Doom', team: 'Avengers/X-men' },
     { name: 'Bestia', team: 'X-men' },
     { name: 'Wolverine', team: 'X-men' },
     { name: 'Magneto', team: 'X-men' },
@@ -53,9 +53,13 @@ const x_men = [
 
 ];
 
-const teams = marvel.concat(x_men);
-const ambos = teams.filter((item) => { return item.team === 'Avengers/X-men' });
+
+
 document.write(` <h1> Ambos bandos: </h1>`);
-ambos.forEach((na) => {
-    document.write(` <p> • ${na.name}</p>`);
-})
+Avengers.forEach((p1) => {
+    x_men.forEach((p2) => {
+        if (p1.name === p2.name) {
+            document.write(`<p> • ${p1.name}</p>`);
+        }
+    });
+});
