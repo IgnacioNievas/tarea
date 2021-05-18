@@ -28,15 +28,15 @@ both_team.forEach((na) => {
 
 
 const Avengers = [
-    { name: 'Quicksilver', team: 'Avengers/X-men' },
-    { name: 'Capitan America', team: 'Avengers' },
-    { name: ' Doctor Victor von Doom', team: 'Avengers/X-men' },
-    { name: 'Spider-Man,', team: 'Avengers' },
-    { name: 'Iron Man', team: 'Avengers' },
-    { name: 'Thor', team: 'Avengers' },
-    { name: 'Hulk', team: 'Avengers' },
-    { name: 'Bruja Escarlata', team: 'Avengers/X-men' },
-    { name: 'Loki', team: 'Avengers' },
+    { name: 'Quicksilver', team: 'Avengers/X-men', date: '1964/03/12' },
+    { name: 'Capitan America', team: 'Avengers', date: '1941/05/17' },
+    { name: ' Doctor Victor von Doom', team: 'Avengers/X-men', date: '1962/09/01' },
+    { name: 'Spider-Man,', team: 'Avengers', date: '1962/08/10' },
+    { name: 'Iron Man', team: 'Avengers', date: '1963/03/05' },
+    { name: 'Thor', team: 'Avengers', date: '1962/08/25 ' },
+    { name: 'Hulk', team: 'Avengers', date: '1962/05/01 ' },
+    { name: 'Bruja Escarlata', team: 'Avengers/X-men', date: '1964/03/12 ' },
+    { name: 'Loki', team: 'Avengers', date: '1949/08/01' },
 
 ];
 
@@ -62,4 +62,22 @@ Avengers.forEach((p1) => {
             document.write(`<p> • ${p1.name}</p>`);
         }
     });
+});
+
+
+function fecha(a) {
+    return new Date(a);
+};
+
+Avengers.sort((a, b) => { return fecha(a.date) - fecha(b.date) });
+
+
+
+
+document.write(` <h1> El orden por fecha es: </h1>`);
+Avengers.forEach((p1) => {
+
+    document.write(`<p> •${p1.name} - ${p1.date}</p>`);
+
+
 });
