@@ -4,7 +4,7 @@ const marvel = [
     { name: 'Capitan America', team: 'Avengers' },
     { name: ' Arcángel', team: 'X-men' },
     { name: '  Doctor Victor von Doom', team: 'X-men', team2: 'Avengers' },
-    { name: 'Spider-Man,', team: 'Avengers' },
+    { name: 'Spider-Man', team: 'Avengers' },
     { name: ' Bestia', team: 'X-men' },
     { name: 'Iron Man', team: 'Avengers' },
     { name: ' Wolverine ', team: 'X-men' },
@@ -31,7 +31,7 @@ const Avengers = [
     { name: 'Quicksilver', team: 'Avengers/X-men', date: '1964/03/12' },
     { name: 'Capitan America', team: 'Avengers', date: '1941/05/17' },
     { name: ' Doctor Victor von Doom', team: 'Avengers/X-men', date: '1962/09/01' },
-    { name: 'Spider-Man,', team: 'Avengers', date: '1962/08/10' },
+    { name: 'Spider-Man', team: 'Avengers', date: '1962/08/10' },
     { name: 'Iron Man', team: 'Avengers', date: '1963/03/05' },
     { name: 'Thor', team: 'Avengers', date: '1962/08/25 ' },
     { name: 'Hulk', team: 'Avengers', date: '1962/05/01 ' },
@@ -69,6 +69,7 @@ function fecha(a) {
     return new Date(a);
 };
 
+
 Avengers.sort((a, b) => { return fecha(a.date) - fecha(b.date) });
 
 
@@ -81,3 +82,28 @@ Avengers.forEach((p1) => {
 
 
 });
+
+
+
+const waitThreeSeconds = () => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(marvel.map((n) => {
+                return n.name
+            }));
+        }, 3000);
+    });
+};
+
+const waitSevenSeconds = () => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(marvel.map((t) => {
+                return t.team
+            }));
+        }, 7000);
+    });
+};
+
+document.write('<h1>Promise</h1>')
+Promise.all([waitThreeSeconds(), waitSevenSeconds()]).then(get => console.log(get));
